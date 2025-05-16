@@ -10,7 +10,7 @@ export default defineConfig({
       input: {
         popup: path.join(__dirname, 'index.html'),
         content: path.join(__dirname, 'src/content.tsx'),
-        background: path.join(__dirname, 'src/background.ts'),
+        background: path.join(__dirname, 'src/service-worker.ts'),
       },
       output: {
         entryFileNames: '[name].js',
