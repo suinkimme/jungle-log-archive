@@ -16,8 +16,10 @@ export default function App() {
       <CardHeader>
         <CardTitle>정글 로그 아카이브</CardTitle>
         <CardDescription>
-          5개월 간의 기록을 대시보드로 보여드립니다. 대시보드는 정글 과정5개월
-          동안 작성해주신 TIL은 수료할 때 하나의 대시보드로 정리해드릴게요.
+          5개월 간의 기록을 대시보드로 보여드립니다.
+          <br />
+          정글 과정 5개월 동안 작성해주신 TIL은 수료할 때 하나의 대시보드로
+          정리해드릴게요.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-2 flex flex-col gap-2">
