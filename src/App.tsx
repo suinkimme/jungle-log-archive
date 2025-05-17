@@ -52,6 +52,8 @@ export default function App() {
         url,
       });
       toast.success('정말 고생 많으셨습니다! 감사합니다!', {});
+      setName('');
+      setUrl('');
     } catch (error) {
       console.log(error);
       toast.error('문제가 발생했습니다. 다시 시도해주세요.');
