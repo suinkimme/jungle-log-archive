@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# 🧭 크래프톤 정글 9기 로그 아카이브
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+정글러들의 TIL, WIL 등 학습 로그를 수집하고 분석하여, 개인별 학습 활동 리포트와 리캡 콘텐츠 제작을 위한 데이터를 저장하는 저장소입니다.
 
-Currently, two official plugins are available:
+## 📌 목적
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 정글러들이 직접 입력한 TIL/WIL URL과 작성 시각 데이터를 저장
+- 수료 시점에 유의미한 학습 통계 및 리캡 콘텐츠(예: 유튜브 영상)에 활용
+- 활동 패턴(예: 주말 집중형, 새벽 학습자 등)을 정량적으로 분석
 
-## Expanding the ESLint configuration
+## 🛠 사용 방법
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> 이 저장소는 직접 작성하거나 크롬 익스텐션을 통해 데이터를 입력합니다.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. 각 참가자는 다음 정보를 입력합니다:
+   - 이름 (혹은 닉네임)
+   - 블로그 포스트 URL (TIL/WIL)
+2. 익스텐션을 통해 입력한 경우 자동 저장됩니다.
+
+## 🤝 기여
+
+본 저장소는 크래프톤 정글 9기 참가자 전용입니다.
+정글러 외 기여는 받지 않습니다.
+
+---
+
+# 🚀 사용 방법
+
+## 📦 패키지 설치
+
+```bash
+pnpm i
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+프로젝트에 필요한 모든 의존성을 설치합니다. package.json에 정의된 모듈들이 node_modules에 설치됩니다.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ 개발 서버 실행
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+pnpm run dev
 ```
+
+개발 모드로 프로젝트를 실행합니다.
+일반적으로 로컬에서 웹 페이지나 프론트엔드 익스텐션 개발 결과를 실시간으로 확인할 수 있습니다.
