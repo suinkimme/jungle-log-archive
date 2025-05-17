@@ -11,18 +11,53 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { toast } from 'sonner';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
 
-  const handleSaveClick = async () => {
-    const response = await axios.post('https://3.35.243.7:5000/api/logs', {
-      name,
-      url,
-    });
+  const validateFields = (field: string, value: string) => {
+    if (field === 'name' && !value) {
+      return '이름을 작성해주세요.';
+    }
 
-    console.log(response);
+    if (field === 'url' && !value) {
+      return 'URL을 작성해주세요.';
+    }
+
+    return null;
+  };
+
+  const handleSaveClick = async () => {
+    setIsLoading(true);
+
+    const nameErrorMessage = validateFields('name', name);
+    const urlErrorMessage = validateFields('url', url);
+
+    if (nameErrorMessage) {
+      toast.error(nameErrorMessage);
+      return;
+    }
+
+    if (urlErrorMessage) {
+      toast.error(urlErrorMessage);
+      return;
+    }
+
+    try {
+      await axios.post('https://gyu.minver.kr/api/logs', {
+        name,
+        url,
+      });
+      toast.success('정말 고생 많으셨습니다! 감사합니다!', {});
+    } catch (error) {
+      console.log(error);
+      toast.error('문제가 발생했습니다. 다시 시도해주세요.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -41,6 +76,7 @@ export default function App() {
             id="name"
             placeholder="이름을 작성해주세요."
             value={name}
+            disabled={isLoading}
             onChange={e => setName(e.target.value)}
           />
         </div>
@@ -50,12 +86,15 @@ export default function App() {
             id="url"
             placeholder="URL을 작성해주세요."
             value={url}
+            disabled={isLoading}
             onChange={e => setUrl(e.target.value)}
           />
         </div>
       </CardContent>
       <CardFooter>
-        <Button onClick={handleSaveClick}>남기기</Button>
+        <Button onClick={handleSaveClick} disabled={isLoading}>
+          남기기
+        </Button>
       </CardFooter>
     </Card>
   );
