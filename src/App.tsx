@@ -92,7 +92,7 @@ export default function App() {
         </div>
       </CardContent>
       <CardFooter>
-        <Button onClick={handleSaveClick} disabled={isLoading}>
+        <Button onClick={handleSaveClick} disabled={isLoading || !name || !url}>
           남기기
         </Button>
       </CardFooter>
