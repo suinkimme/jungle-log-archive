@@ -1,4 +1,4 @@
-import path from 'path';
+import { resolve } from 'path';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
@@ -8,9 +8,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        popup: path.join(__dirname, 'index.html'),
-        content: path.join(__dirname, 'src/content.tsx'),
-        'service-worker': path.join(__dirname, 'src/service-worker.ts'),
+        popup: resolve(__dirname, 'popup.html'),
+        content: resolve(__dirname, 'src/content.tsx'),
+        'service-worker': resolve(__dirname, 'src/service-worker.ts'),
       },
       output: {
         entryFileNames: '[name].js',
@@ -22,7 +22,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': resolve(__dirname, './src'),
     },
   },
 });
