@@ -13,6 +13,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 
+import { PostList } from '@/components/custom/post-list';
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState('');
@@ -63,41 +65,47 @@ export default function App() {
   };
 
   return (
-    <Card className="border-none bg-transparent">
-      <CardHeader>
-        <CardTitle>정글 로그 아카이브</CardTitle>
-        <CardDescription>
-          정글 과정 5개월 동안 작성해주신 TIL은 수료할 때 하나의 대시보드로
-          정리해드릴게요.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-2 flex flex-col gap-2">
-        <div className="space-y-1 flex flex-col gap-1">
-          <Label htmlFor="name">이름</Label>
-          <Input
-            id="name"
-            placeholder="이름을 작성해주세요."
-            value={name}
-            disabled={isLoading}
-            onChange={e => setName(e.target.value)}
-          />
-        </div>
-        <div className="space-y-1 flex flex-col gap-1">
-          <Label htmlFor="url">URL</Label>
-          <Input
-            id="url"
-            placeholder="URL을 작성해주세요."
-            value={url}
-            disabled={isLoading}
-            onChange={e => setUrl(e.target.value)}
-          />
-        </div>
-      </CardContent>
-      <CardFooter>
-        <Button onClick={handleSaveClick} disabled={isLoading || !name || !url}>
-          남기기
-        </Button>
-      </CardFooter>
-    </Card>
+    <div className="flex w-full h-full">
+      <Card className="w-[350px] border-none bg-transparent">
+        <CardHeader>
+          <CardTitle>정글 로그 아카이브</CardTitle>
+          <CardDescription>
+            정글 과정 5개월 동안 작성해주신 TIL은 수료할 때 하나의 대시보드로
+            정리해드릴게요.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2 flex flex-col gap-2">
+          <div className="space-y-1 flex flex-col gap-1">
+            <Label htmlFor="name">이름</Label>
+            <Input
+              id="name"
+              placeholder="이름을 작성해주세요."
+              value={name}
+              disabled={isLoading}
+              onChange={e => setName(e.target.value)}
+            />
+          </div>
+          <div className="space-y-1 flex flex-col gap-1">
+            <Label htmlFor="url">URL</Label>
+            <Input
+              id="url"
+              placeholder="URL을 작성해주세요."
+              value={url}
+              disabled={isLoading}
+              onChange={e => setUrl(e.target.value)}
+            />
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button
+            onClick={handleSaveClick}
+            disabled={isLoading || !name || !url}
+          >
+            남기기
+          </Button>
+        </CardFooter>
+      </Card>
+      <PostList />
+    </div>
   );
 }
