@@ -47,7 +47,7 @@ export default function App() {
     }
 
     try {
-      await axios.post('https://gyu.minver.kr/api/logs', {
+      await axios.post('https://gyu.codingsoup.co.kr/api/logs', {
         name,
         url,
       });
