@@ -29,3 +29,7 @@ export function PostItem() {
     </div>
   );
 }
+
+export function PostItemSkeleton() {
+  return <div>hello world</div>;
+}
