@@ -1,7 +1,9 @@
+import { Skeleton } from '@/components/ui/skeleton';
+
 export function PostItem() {
   return (
     <div className="w-full max-w-[500px] h-[110px] flex gap-3">
-      <div className="aspect-[3/2] flex-shrink-0">
+      <div className="w-[210px] h-[110px] flex-shrink-0">
         <div className="h-full">
           <img
             src="https://velog.velcdn.com/images/suinkim/post/525cb88a-f4ed-4eb4-978f-35e01258755e/image.png"
@@ -31,5 +33,18 @@ export function PostItem() {
 }
 
 export function PostItemSkeleton() {
-  return <div>hello world</div>;
+  return (
+    <div className="w-full max-w-[500px] h-[110px] flex gap-3">
+      <Skeleton className="w-[210px] h-[110px] flex-shrink-0 rounded-[6px]" />
+      <div className="w-full h-full flex flex-col justify-between gap-2 py-2">
+        <div className="flex flex-col gap-2">
+          <Skeleton className="h-4 w-[250px]" />
+          <Skeleton className="h-4 w-[200px]" />
+          <Skeleton className="h-4 w-[200px]" />
+          <Skeleton className="h-4 w-[130px]" />
+        </div>
+        <Skeleton className="h-4 w-[250px]" />
+      </div>
+    </div>
+  );
 }
