@@ -19,7 +19,7 @@ export function PostList() {
 
   return (
     <ScrollArea className="w-[520px] h-[600px] px-2 pr-10">
-      <div className="flex flex-col gap-4 py-5">
+      <div className="flex flex-col gap-4 pt-5">
         {posts.map((post, index) => (
           <PostItem key={`asdf-${index}`} {...post} />
         ))}
