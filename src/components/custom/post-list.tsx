@@ -15,7 +15,7 @@ function PostListSkeleton() {
 }
 
 export function PostList() {
-  const { posts, isLoading } = usePostList();
+  const { posts, isLoading, observerRef } = usePostList();
 
   return (
     <ScrollArea className="w-[520px] h-[600px] px-2 pr-10">
@@ -24,6 +24,7 @@ export function PostList() {
           <PostItem key={`asdf-${index}`} {...post} />
         ))}
         {isLoading && <PostListSkeleton />}
+        <div ref={observerRef} style={{ height: '1px' }} />
       </div>
     </ScrollArea>
   );
