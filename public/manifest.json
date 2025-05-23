@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "크래프톤 정글 9기 로그 아카이브",
   "description": "크래프톤 정글 9기 TIL, WIL 저장합니다.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icons": {
     "16": "icons/icon-16.png",
     "32": "icons/icon-32.png",
