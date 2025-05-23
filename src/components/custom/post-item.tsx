@@ -1,6 +1,7 @@
 import { Skeleton } from '@/components/ui/skeleton';
 import { type Post } from '@/types/post';
 import { Image } from 'lucide-react';
+import { toTimeFormat } from '@/lib/date';
 
 export function PostItem({ name, url, created_at, meta_info }: Post) {
   return (
@@ -37,7 +38,7 @@ export function PostItem({ name, url, created_at, meta_info }: Post) {
           </p>
         </div>
         <p className="text-xs text-gray-500">
-          {created_at} · {name}
+          {toTimeFormat(new Date(created_at).getTime())} · {name}
         </p>
       </div>
     </div>
