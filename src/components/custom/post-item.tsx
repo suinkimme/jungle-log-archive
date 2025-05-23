@@ -51,12 +51,12 @@ export function PostItemSkeleton() {
       <Skeleton className="w-[210px] h-[110px] flex-shrink-0 rounded-[6px]" />
       <div className="w-full h-full flex flex-col justify-between gap-2 py-2">
         <div className="flex flex-col gap-2">
-          <Skeleton className="h-4 w-[250px]" />
           <Skeleton className="h-4 w-[200px]" />
-          <Skeleton className="h-4 w-[200px]" />
-          <Skeleton className="h-4 w-[130px]" />
+          <Skeleton className="h-4 w-[150px]" />
+          <Skeleton className="h-4 w-[150px]" />
+          <Skeleton className="h-4 w-[80px]" />
         </div>
-        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[150px]" />
       </div>
     </div>
   );
