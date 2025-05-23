@@ -1,32 +1,28 @@
 import { Skeleton } from '@/components/ui/skeleton';
+import { type Post } from '@/types/post';
 
-export function PostItem() {
+export function PostItem({ name, url, created_at, meta_info }: Post) {
   return (
     <div className="w-full max-w-[500px] h-[110px] flex gap-3">
-      <div className="w-[210px] h-[110px] flex-shrink-0">
-        <div className="h-full">
-          <img
-            src="https://velog.velcdn.com/images/suinkim/post/525cb88a-f4ed-4eb4-978f-35e01258755e/image.png"
-            alt="썸네일"
-            className="h-full object-cover rounded-[6px]"
-          />
-        </div>
+      <div className="w-[210px] h-[110px] flex-shrink-0 overflow-hidden">
+        <img
+          src={meta_info.og_image}
+          alt={meta_info.og_title}
+          className="w-full h-full object-cover rounded-[6px]"
+        />
       </div>
       <div className="w-full h-full flex flex-col justify-between gap-2 py-2">
         <div className="flex flex-col gap-2">
           <h3 className="text-sm font-bold line-clamp-2">
-            퇴사 이후의 선택, 크래프톤 정글 9기 합격기퇴사퇴사 이후의 선택,
-            크래프톤 정글 9기 합격기퇴사퇴사 이후의 선택, 크래프톤 정글 9기
-            합격기퇴사
+            {meta_info.og_title}
           </h3>
           <p className="text-sm text-gray-500 line-clamp-1">
-            퇴사 이후의 선택, 크래프톤 정글 9기 합격기퇴사 이후의 선택, 크래프톤
-            정글 9기 합격기퇴사 이후의 선택, 크래프톤 정글 9기 합격기퇴사 이후의
-            선택, 크래프톤 정글 9기 합격기퇴사 이후의 선택, 크래프톤 정글 9기
-            합격기
+            {meta_info.description}
           </p>
         </div>
-        <p className="text-xs text-gray-500">2025.05.21 · 김민규</p>
+        <p className="text-xs text-gray-500">
+          {created_at} · {name}
+        </p>
       </div>
     </div>
   );
