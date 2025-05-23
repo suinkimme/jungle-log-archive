@@ -5,8 +5,6 @@ import { usePostList } from '@/hooks/usePostList';
 export function PostList() {
   const { posts, isLoading } = usePostList();
 
-  console.log(posts);
-
   return (
     <ScrollArea className="h-[600px] px-2 pr-10">
       <div className="flex flex-col gap-4 py-5">
