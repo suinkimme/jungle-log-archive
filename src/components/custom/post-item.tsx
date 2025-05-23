@@ -1,5 +1,6 @@
 import { Skeleton } from '@/components/ui/skeleton';
 import { type Post } from '@/types/post';
+import { Image } from 'lucide-react';
 
 export function PostItem({ name, url, created_at, meta_info }: Post) {
   return (
@@ -10,11 +11,17 @@ export function PostItem({ name, url, created_at, meta_info }: Post) {
         rel="noopener noreferrer"
         className="w-[210px] h-[110px] flex-shrink-0 overflow-hidden"
       >
-        <img
-          src={meta_info.og_image}
-          alt={meta_info.og_title}
-          className="w-full h-full object-cover rounded-[6px]"
-        />
+        {meta_info.og_image === '' || meta_info.og_image === null ? (
+          <div className="w-full h-full flex items-center justify-center bg-accent rounded-[6px]">
+            <Image className="w-10 h-10" />
+          </div>
+        ) : (
+          <img
+            src={meta_info.og_image}
+            alt={meta_info.og_title}
+            className="w-full h-full object-cover rounded-[6px]"
+          />
+        )}
       </a>
       <div className="w-full h-full flex flex-col justify-between gap-2 py-2">
         <div className="flex flex-col gap-2">
